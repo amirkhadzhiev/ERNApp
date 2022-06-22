@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fragmentScanner">
+
+    <fragment
+        android:id="@+id/fragmentScanner"
+        android:name="gov.ukuk.ernapp.ui.fragments.scanner.ScannerFragment"
+        android:label="fragment_scanner"
+        tools:layout="@layout/fragment_scanner" />
+
+    <fragment
+        android:id="@+id/fragmentSearch"
+        android:name="gov.ukuk.ernapp.ui.fragments.searchPlate.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" />
+
+    <fragment
+        android:id="@+id/fragmentSearchPin"
+        android:name="gov.ukuk.ernapp.ui.fragments.searchPIN.SearchPinFragment"
+        android:label="fragment_search_pin"
+        tools:layout="@layout/fragment_search_pin" />
+    <fragment
+        android:id="@+id/ernPortalFragment"
+        android:name="gov.ukuk.ernapp.ui.fragments.ernportal.ErnPortalFragment"
+        android:label="fragment_ern_portal"
+        tools:layout="@layout/fragment_ern_portal" />
+</navigation>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/fragmentScanner"
+        android:title="СКАННЕР"
+        android:icon="@drawable/ic_camera"
+        android:iconTint="@color/white"/>
+
+    <item android:id="@+id/fragmentSearch"
+        android:title="ПОИСК ПО НОМЕРУ"
+        android:icon="@drawable/ic_search"
+        android:iconTint="@color/white"/>
+
+    <item android:id="@+id/fragmentSearchPin"
+        android:title="ПОИСК ПО ПИН"
+        android:icon="@drawable/ic_search"
+        android:iconTint="@color/white"/>
+
+    <item android:id="@+id/ernPortalFragment"
+        android:title="ЕРН"
+        android:icon="@drawable/ic_local_police"
+        android:iconTint="@color/white"/>
+
+</menu>
