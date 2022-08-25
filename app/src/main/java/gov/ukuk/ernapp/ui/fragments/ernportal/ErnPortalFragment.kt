@@ -26,7 +26,7 @@ class ErnPortalFragment : Fragment() {
         _binding = FragmentErnPortalBinding.inflate(inflater, container,false)
         val view = binding.root
 
-        binding.webView.loadUrl("http://10.111.70.72")
+        binding.webView.loadUrl("http://ern.gp")
 
         //Enable Javascript
         val webSettings = binding.webView.settings

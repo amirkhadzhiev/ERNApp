@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:id="@+id/linear"
+        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/auto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textSize="20sp"
+            android:layout_marginTop="8dp"
+            android:text="Авто: " />
+
+
+        <TextView
+            android:id="@+id/protocolNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textSize="20sp"
+            android:layout_marginTop="8dp"
+            android:text="Номер протокола: " />
+
+        <TextView
+            android:id="@+id/article"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Статья: " />
+
+
+        <TextView
+            android:id="@+id/paymentCode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textSize="20sp"
+            android:layout_marginTop="8dp"
+            android:text="Код оплаты: " />
+
+        <TextView
+            android:id="@+id/paySum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Сумма к оплате: " />
+
+        <TextView
+            android:id="@+id/INN"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:textSize="20sp"
+            android:text="ИНН: " />
+
+        <TextView
+            android:id="@+id/dateRegistration"
+            android:textSize="20sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Дата регистрации: " />
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textSize="20sp"
+            android:layout_marginTop="8dp"
+            android:text="Описание нарушения: " />
+
+    </LinearLayout>
+
+    <Button
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="12dp"
+        android:layout_width="match_parent"
+        android:id="@+id/btnClose"
+        android:text="Закрыть"
+        android:layout_height="80dp"
+        android:layout_marginHorizontal="40dp"/>
+
+
+</RelativeLayout>

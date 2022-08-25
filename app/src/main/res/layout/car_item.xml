@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="260dp"
+    android:layout_height="220dp"
+    android:background="@color/background_fragments"
+    android:padding="5dp">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_height="match_parent"
+        android:backgroundTint="@color/white"
+        app:cardCornerRadius="16dp">
+
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:id="@+id/linear"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+
+            <TextView
+                android:id="@+id/auto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Марка Модель" />
+
+
+            <TextView
+                android:id="@+id/carNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+
+                android:layout_marginTop="8dp"
+                android:text="Гос.номер: " />
+
+            <TextView
+                android:id="@+id/color"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+
+                android:layout_marginTop="8dp"
+                android:text="Цвет: " />
+
+
+            <TextView
+                android:id="@+id/autoType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+
+                android:layout_marginTop="8dp"
+                android:text="Тип авто: " />
+
+            <TextView
+                android:id="@+id/autoYear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+
+                android:layout_marginTop="8dp"
+                android:text="Год авто: " />
+
+            <TextView
+                android:id="@+id/VIN"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="8dp"
+
+                android:text="VIN код: " />
+
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

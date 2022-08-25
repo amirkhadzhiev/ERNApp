@@ -6,3 +6,4 @@ object const {
     const val ERN = 1
     const val BG = 2
 }
+

@@ -5,34 +5,26 @@ import androidx.lifecycle.liveData
 import gov.ukuk.ernapp.data.network.RemoteDataSource
 import gov.ukuk.ernapp.data.network.Resource
 import gov.ukuk.ernapp.models.*
+import gov.ukuk.ernapp.models.violation.Violation
 import kotlinx.coroutines.Dispatchers
 
 class Repository(private val dataSource: RemoteDataSource){
 
 
-    fun fetchERNAppApiFilteredDataProt(plateNumber: String): LiveData<Resource<MutableList<Protocol>>> = liveData(Dispatchers.IO){
-        emit(Resource.loading(null))
-        val response = dataSource.fetchFilteredDataProt(plateNumber)
-        emit(response)
-    }
+    suspend fun fetchERNAppApiFilteredDataProt(plateNumber: String) = dataSource.fetchFilteredDataProt(plateNumber)
 
-    fun getERNAppApiViolationsByPl(plate: Info): LiveData<Resource<TundukBezGorod>> = liveData(Dispatchers.IO){
-        emit(Resource.loading(null))
-        val response = dataSource.getViolationsByPl(plate)
-        emit(response)
-    }
+    suspend fun getERNAppApiViolationsByPl(plate: Info) = dataSource.getViolationsByPl(plate)
 
-    fun fetchERNAppApiFilteredDataByPin(inn: String): LiveData<Resource<MutableList<Protocol>>> = liveData(Dispatchers.IO){
-        emit(Resource.loading(null))
-        val response = dataSource.fetchFilteredDataByPin(inn)
-        emit(response)
-    }
 
-    fun getCarsInfoByPin(pin: SendPin): LiveData<Resource<MutableList<CarInfo>>> = liveData(Dispatchers.IO){
-        emit(Resource.loading(null))
-        val response = dataSource.getCarsByPin(pin)
-        emit(response)
-    }
+    suspend fun fetchERNAppApiFilteredDataByPin(inn: String) = dataSource.fetchFilteredDataByPin(inn)
+
+    suspend fun getCarsInfoByPin(pin: SendPin) = dataSource.getCarsByPin(pin)
+
+
+    suspend fun getCarByPlate(plate: InfoGov) = dataSource.getCarByPlate(plate)
+
+    suspend fun getViolatioinsByPlateAndPin(info : CarPlateAndPin) = dataSource.getViolationByPlateAndPin(info)
+
 
 //    fun fetchERNAppApiLocationId(id: Int): LiveData<Resource<Protocol>> = liveData(Dispatchers.IO){
 //        emit(Resource.loading(null))

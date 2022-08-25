@@ -15,3 +15,7 @@ data class TundukProtocol1(
 data class Info (
     @SerializedName("plate") val plate: String?
 )
+
+data class InfoGov (
+    @SerializedName("govPlate") val plate: String?,
+)

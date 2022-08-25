@@ -1,24 +1,15 @@
 package gov.ukuk.ernapp.ui.fragments.searchPIN
 
-import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import gov.ukuk.ernapp.databinding.FineItemBinding
-import gov.ukuk.ernapp.models.Protocol
-import gov.ukuk.ernapp.ui.fragments.searchPlate.SearchAdapter
+import gov.ukuk.ernapp.models.protocol.Protocol
 
-class SearchPinAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
+class SearchPinAdapter : RecyclerView.Adapter<SearchPinAdapter.ViewHolder>(){
 
-    private val listPin: ArrayList<Protocol> = ArrayList()
+    private val listPin = mutableListOf<Protocol>()
 
-
-
-    private lateinit var listener: SearchAdapter.OnItemClickListener
-
-    fun addListener(listener: OnItemClickListener) {
-//        this.listener = listener
-    }
 
     fun clearAdapter() {
         if (!this.listPin.isEmpty()) {
@@ -26,39 +17,47 @@ class SearchPinAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
         }
     }
 
-    fun addItems(list: java.util.ArrayList<Protocol>) {
-        this.listPin.addAll(list)
-        this.listPin.reverse()
-        notifyDataSetChanged()
+    fun addItems(list: MutableList<Protocol>) {
+        if(!listPin.containsAll(list)){
+            listPin.addAll(list)
+            notifyDataSetChanged()
+        }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding =
             FineItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return Viewholder(binding)
+        return ViewHolder(binding)
 
     }
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        (holder as Viewholder).onBind(listPin[position])
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        val protocol = listPin[position]
+
+        holder.binding.apply {
+            fineNumberTv.setText(protocol.code)
+            fineNameTv.setText(protocol.physicalData?.name + " " + protocol.physicalData?.surname + " " + protocol.physicalData?.patronymic)
+            sumNumberTv.setText((protocol.penaltyAmount?.plus(protocol.paymentFineTotal!!)).toString())
+            codePaymentTv.setText(protocol.paymentCode)
+        }
+        holder.itemView.setOnClickListener{
+            onProtocolClickListener?.let { it(protocol) }
+        }
+
     }
 
     override fun getItemCount(): Int = listPin.size
 
-    class Viewholder(val binding: FineItemBinding) : RecyclerView.ViewHolder(binding.root) {
+    class ViewHolder(val binding: FineItemBinding) : RecyclerView.ViewHolder(binding.root) {
 
 
-        @SuppressLint("SetTextI18n")
-        fun onBind(protocol: Protocol) {
-            binding.fineNumberTv.setText(protocol.code)
-            binding.fineNameTv.setText(protocol.physicalData?.name + " " + protocol.physicalData?.surname + " " + protocol.physicalData?.patronymic)
-            binding.sumNumberTv.setText((protocol.penaltyAmount?.plus(protocol.paymentFineTotal!!)).toString())
-            binding.codePaymentTv.setText(protocol.paymentCode)
-        }
     }
 
-    interface OnItemClickListener {
-        fun onClick(id: Int, type: Int)
+    private var onProtocolClickListener: ((Protocol) -> Unit)? =  null
+    fun setOnProtocolClickListener(listener: (Protocol) -> Unit) {
+        onProtocolClickListener = listener
     }
+
+
 
 }

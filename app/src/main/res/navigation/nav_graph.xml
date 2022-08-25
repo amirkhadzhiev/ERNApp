@@ -15,16 +15,48 @@
         android:id="@+id/fragmentSearch"
         android:name="gov.ukuk.ernapp.ui.fragments.searchPlate.SearchFragment"
         android:label="fragment_search"
-        tools:layout="@layout/fragment_search" />
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_fragmentSearch_to_violationFragment"
+            app:destination="@id/violationFragment" />
+        <action
+            android:id="@+id/action_fragmentSearch_to_protocolFragment"
+            app:destination="@id/protocolFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/fragmentSearchPin"
         android:name="gov.ukuk.ernapp.ui.fragments.searchPIN.SearchPinFragment"
         android:label="fragment_search_pin"
-        tools:layout="@layout/fragment_search_pin" />
+        tools:layout="@layout/fragment_search_pin" >
+        <action
+            android:id="@+id/action_fragmentSearchPin_to_protocolFragment"
+            app:destination="@id/protocolFragment" />
+        <action
+            android:id="@+id/action_fragmentSearchPin_to_violationFragment"
+            app:destination="@id/violationFragment" />
+    </fragment>
     <fragment
         android:id="@+id/ernPortalFragment"
         android:name="gov.ukuk.ernapp.ui.fragments.ernportal.ErnPortalFragment"
         android:label="fragment_ern_portal"
         tools:layout="@layout/fragment_ern_portal" />
+    <fragment
+        android:id="@+id/violationFragment"
+        android:name="gov.ukuk.ernapp.ui.fragments.searchPlate.ViolationFragment"
+        android:label="ViolationFragment" >
+        <argument android:name="plate"
+            app:argType="string" />
+        <argument
+            android:name="paymentNumber"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/protocolFragment"
+        android:name="gov.ukuk.ernapp.ui.fragments.searchPlate.ProtocolFragment"
+        android:label="ProtocolFragment" >
+        <argument
+            android:name="protocol"
+            app:argType="gov.ukuk.ernapp.models.protocol.Protocol" />
+    </fragment>
 </navigation>

@@ -1,30 +1,12 @@
 package gov.ukuk.ernapp.data.network
 
 
-data class Resource<out T> (val status: Status, val data : T?, val message: String?, val code: Int?){
-    companion object{
-        fun <T> success(data: T?): Resource<T> {
-            return Resource(Status.SUCCESS, data, null, null)
-        }
+sealed class Resource<T>(
+    val data: T? = null,
+    val message: String? = null
+) {
+    class Succes<T>(data: T): Resource<T>(data)
 
-        fun <T> error(msg: String?, data: T?, code: Int?): Resource<T> {
-            return Resource(Status.ERROR, data, msg, code)
-        }
-
-        fun <T> notFound(msg: String?, data: T?, code: Int?): Resource<T> {
-            return Resource(Status.NOT_FOUND, data, msg, code)
-        }
-
-        fun <T> loading(data: T?) : Resource<T>{
-            return Resource(Status.LOADING, data, null, null)
-        }
-    }
-}
-
-
-enum class Status{
-    SUCCESS,
-    ERROR,
-    NOT_FOUND,
-    LOADING
+    class Error<T>(message: String, data: T? = null): Resource<T>(data, message)
+    class Loading<T> : Resource<T>()
 }

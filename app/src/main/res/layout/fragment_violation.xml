@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:id="@+id/linear"
+        android:layout_marginTop="20dp"
+        android:visibility="gone"
+
+        android:layout_height="wrap_content"
+        android:layout_below="@id/progressBar"
+        android:orientation="vertical">
+
+
+
+        <TextView
+            android:id="@+id/dateBorn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:textSize="20sp"
+            android:text="Дата рождения: " />
+
+        <TextView
+            android:id="@+id/address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textSize="20sp"
+            android:layout_marginTop="8dp"
+            android:text="Аддрес: " />
+
+        <TextView
+            android:id="@+id/auto"
+            android:layout_width="wrap_content"
+            android:textSize="20sp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Авто: " />
+
+        <TextView
+            android:id="@+id/paymentCode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Код оплаты: " />
+
+        <TextView
+            android:id="@+id/isPayed"
+            android:textSize="20sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Не оплачено: " />
+
+        <TextView
+            android:id="@+id/dateRegistration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Дата регистрации: " />
+
+        <TextView
+            android:id="@+id/violationPlace"
+            android:layout_width="wrap_content"
+            android:textSize="20sp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Место нарушения: " />
+
+        <TextView
+            android:id="@+id/article"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Статья: " />
+
+
+    </LinearLayout>
+
+    <Button
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="12dp"
+        android:layout_width="match_parent"
+        android:id="@+id/btnClose"
+        android:text="Закрыть"
+        android:layout_height="60dp"
+        android:layout_marginHorizontal="40dp"/>
+</RelativeLayout>

@@ -27,13 +27,18 @@ class MainActivity : AppCompatActivity() {
     private fun initNav() {
         navController = findNavController(R.id.main_container)
         binding.bottomNav.setupWithNavController(navController)
-        val appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.fragmentScanner,
-                R.id.fragmentSearch,
-                R.id.fragmentSearchPin,
-                R.id.ernPortalFragment
-            )
-        )
+    }
+
+    fun hideBottomNavigationView() {
+        binding.bottomNav.clearAnimation()
+        binding.bottomNav.animate()
+            .translationY(binding.bottomNav.height.toFloat()).duration = 300
+        binding.bottomNav.visibility = View.GONE
+    }
+
+    fun showBottomNavigationView() {
+        binding.bottomNav.clearAnimation()
+        binding.bottomNav.animate().translationY(0f).duration = 300
+        binding.bottomNav.visibility = View.VISIBLE
     }
 }
